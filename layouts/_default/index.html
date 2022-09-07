@@ -56,11 +56,15 @@
         {{ else }}
           {{ if .Truncated }}
             {{ .Summary }}
+          {{ else }}
+            {{ .Content }}
           {{ end }}
         {{ end }}
       </div>
       {{ if not .Params.hideReadMore }}
+        {{ if .Truncated }}
         <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
+        {{ end }}
       {{ end }}
     </div>
     {{ end }}
